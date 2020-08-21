@@ -1,8 +1,6 @@
 from django.contrib import admin
 from.models import *
 
-# Register your models here.
-
 class PrestamoInline(admin.TabularInline):
     model = Prestamo
 
@@ -52,4 +50,3 @@ admin.site.register(Revista,RevistaAdmin)
 admin.site.register(Alumno, AlumnoAdmin)
 admin.site.register(Profesor, ProfesorAdmin)
 admin.site.register(Prestamo,PrestamoAdmin)
-
