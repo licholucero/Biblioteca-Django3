@@ -3,7 +3,7 @@ from django.db import models
 
 # Create your models here.
 ESTADO_DEL_LIBRO = [
-    ('IN', 'En biblioteca'),
+    ('IN', 'Biblioteca'),
     ('BW', 'Prestado'),
     ('RQ', 'Pedido'),
     ('RV', 'Reservado'),
@@ -14,7 +14,7 @@ class Material(models.Model):
     autor = models.CharField(max_length=40)
     titulo = models.CharField(max_length=30)
     año = models.IntegerField()
-    status = models.CharField(max_length=2, choices=ESTADO_DEL_LIBRO, default='En biblioteca')
+    status = models.CharField(max_length=2, choices=ESTADO_DEL_LIBRO, default='Biblioteca')
 
     def __str__(self):
         return self.titulo

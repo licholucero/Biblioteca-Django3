@@ -21,6 +21,6 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('Biblioteca.urls')),
+    path('', include('biblioteca.urls')),
     url(r'^jet/', include('jet.urls', 'jet'))
 ]
