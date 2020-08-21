@@ -8,7 +8,7 @@ class AlumnoAdmin(admin.ModelAdmin):
     inlines = [PrestamoInline,]
     list_display = ['matricula','nombre','apellido',]
     fieldsets = (
-        ('Datos Personales',{
+        ('Informacion',{
             'fields':('nombre','apellido','correo','telefono','matricula')
         }),
         ('Biblioteca',{
@@ -20,7 +20,7 @@ class ProfesorAdmin(admin.ModelAdmin):
     inlines = [PrestamoInline,]
     list_display = ['num_empleado','nombre','apellido']
     fieldsets = (
-        ('Datos Personales',{
+        ('Informacion',{
             'fields':('nombre','apellido','correo','telefono','num_empleado')
         }),
         ('Biblioteca',{
@@ -44,6 +44,6 @@ class PrestamoAdmin(admin.ModelAdmin):
 
 admin.site.register(Libro,LibroAdmin)
 admin.site.register(Revista,RevistaAdmin)
-admin.site.register(Alumno, AlumnoAdmin)
-admin.site.register(Profesor, ProfesorAdmin)
+admin.site.register(Alumno,AlumnoAdmin)
+admin.site.register(Profesor,ProfesorAdmin)
 admin.site.register(Prestamo,PrestamoAdmin)
