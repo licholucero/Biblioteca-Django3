@@ -7,7 +7,6 @@ class PrestamoInline(admin.TabularInline):
 class AlumnoAdmin(admin.ModelAdmin):
     inlines = [PrestamoInline,]
     list_display = ['matricula','nombre','apellido',]
-    search_fields = ['nombre','apellido','correo','matricula']
     fieldsets = (
         ('Datos Personales',{
             'fields':('nombre','apellido','correo','telefono','matricula')
@@ -20,7 +19,6 @@ class AlumnoAdmin(admin.ModelAdmin):
 class ProfesorAdmin(admin.ModelAdmin):
     inlines = [PrestamoInline,]
     list_display = ['num_empleado','nombre','apellido']
-    search_fields = ['nombre','apellido','correo','num_empleado']
     fieldsets = (
         ('Datos Personales',{
             'fields':('nombre','apellido','correo','telefono','num_empleado')
@@ -30,15 +28,14 @@ class ProfesorAdmin(admin.ModelAdmin):
         })
         )
 
-class LibroAdmin(admin.ModelAdmin):
-    inlines = [PrestamoInline,]
-    list_display = ['titulo','autor','status']
-    search_fields = ['titulo','autor','status','editorial']
 
 class RevistaAdmin(admin.ModelAdmin):
     inlines = [PrestamoInline,]
     list_display = ['titulo','autor','status']
-    search_fields = ['titulo','autor','status']
+
+class LibroAdmin(admin.ModelAdmin):
+    inlines = [PrestamoInline,]
+    list_display = ['titulo','autor','status']
 
 class PrestamoAdmin(admin.ModelAdmin):
     list_display = ['persona','material','fecha_salida','fecha_regreso']

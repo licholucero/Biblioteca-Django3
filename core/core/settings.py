@@ -20,25 +20,26 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '41o@ac@uy(o-^9pku5*@llgr_rp^+uyi1qh&&m6u%y(!(yq@$x'
+SECRET_KEY = 's4ilr&8n#(x+=f=t7tnahah=til6rafa=9&=$w8vqjz4+#yn8$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 
 # Application definition
 
 INSTALLED_APPS = [
     'jet',
-    'biblioteca',
+    'Biblioteca',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
 ]
 
 MIDDLEWARE = [
@@ -57,6 +58,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [],
+        'DIRS': [os.path.normpath(os.path.join(BASE_DIR, 'Biblioteca/templates')),],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
