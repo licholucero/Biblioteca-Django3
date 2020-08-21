@@ -31,3 +31,32 @@ class Material(models.Model):
     class Meta:
         verbose_name = ('Material Lectura')
         verbose_name_plural = ('Materiales de Lectura')
+
+class Persona(models.Model):
+    nombre = models.CharField(max_length=30)
+    apellido = models.CharField(max_length=30)
+    correo = models.EmailField()
+    telefono = models.IntegerField()
+    num_libros = models.IntegerField()
+    deuda = models.FloatField()
+
+    def __str__(self):
+        return "{} {}".format(self.nombre,self.apellido)
+
+class Alumno(Persona):
+    matricula = models.IntegerField()
+
+class Profesor(Persona):
+    num_empleado = models.IntegerField()
+    class Meta:
+        verbose_name = ('Profesor')
+        verbose_name_plural = ('Profesores')
+
+class Prestamo(models.Model):
+    codigo = models.CharField(max_length = 30)
+    fecha_salida = models.DateField(auto_now=False)
+    fecha_regreso = models.DateField(auto_now=False)
+    persona = models.ForeignKey('Persona',on_delete=models.CASCADE,null=False)
+    material = models.ForeignKey('Material',on_delete=models.CASCADE,null=False)
+    def __str__(self):
+        return self.codigo
